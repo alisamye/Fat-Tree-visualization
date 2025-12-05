@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fat-Tree Topology Visualization (k=N) - ECMP Demo</title>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div class="container-card">
+        <h1 class="title">Fat-Tree Topology Visualizer (k=N) - ECMP Demo</h1>
+        <p class="subtitle">
+            Explore the Equal Cost Multi-Path (ECMP) routing in a dynamically generated Fat-Tree network. The Pod structure is highlighted.
+        </p>
+        
+        <!-- K Parameter Input -->
+        <div class="input-control-group">
+            <label for="k-value" class="label-k">Select parameter k (must be an even number from 2 to 6):</label>
+            <input type="number" id="k-value" value="4" min="2" max="6" step="2" class="input-k">
+            <button id="generate-button" class="button-primary">
+                Generate Topology
+            </button>
+        </div>
+
+        <!-- Dynamic Instruction Message -->
+        <div id="instruction-message" class="message-box">
+            <span class="bold-text text-gray-700">Click the "Generate Topology" button to begin.</span>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item"><div class="legend-swatch" style="background-color: var(--core-color);"></div>Core Switch</div>
+            <div class="legend-item"><div class="legend-swatch" style="background-color: var(--agg-color);"></div>Aggregation Switch</div>
+            <div class="legend-item"><div class="legend-swatch" style="background-color: var(--edge-color);"></div>Edge Switch</div>
+            <div class="legend-item"><div class="legend-swatch" style="background-color: var(--host-color);"></div>Host (Server)</div>
+            <div class="legend-item"><div class="legend-swatch" style="background-color: var(--path-color);"></div>ECMP Path (Flow)</div>
+        </div>
+
+        <!-- SVG Container for Network Visualization -->
+        <div id="network-container">
+            <!-- New: A group for the background elements (Pod boxes) -->
+            <svg id="fat-tree-svg">
+                <g id="pod-backgrounds"></g> 
+            </svg>
+        </div>
+    </div>
+    <!-- Link to the external JavaScript file using 'defer' -->
+    <script src="script.js" defer></script>
+</body>
+</html>

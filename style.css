@@ -1,0 +1,175 @@
+/* --- Color Variables --- */
+:root {
+    --core-color: #ef4444; /* Red */
+    --agg-color: #f97316; /* Orange */
+    --edge-color: #22c55e; /* Green */
+    --host-color: #3b82f6; /* Blue */
+    --bg-color: #f3f4f6;
+    --link-color: #9ca3af;
+    --highlight-color: #34d399; /* Green for highlight */
+    --path-color: #fde047; /* Yellow for path */
+
+    --indigo-50: #eef2ff;
+    --indigo-200: #c7d2fe;
+    --indigo-300: #a5b4fc;
+    --indigo-600: #4f46e5;
+    --indigo-700: #4338ca;
+    --gray-50: #f9fafb;
+    --gray-200: #e5e7eb;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --red-600: #dc2626;
+    --green-600: #16a34a;
+    --orange-600: #ea580c;
+}
+
+/* --- Base Styles --- */
+body { 
+    background-color: var(--bg-color); 
+    font-family: 'Inter', sans-serif; 
+    padding: 1rem;
+}
+
+/* Responsive padding for body */
+@media (min-width: 768px) {
+    body {
+        padding: 2rem;
+    }
+    .input-control-group {
+        flex-direction: row;
+    }
+}
+
+/* --- Main Container Card --- */
+.container-card {
+    width: 100%;
+    max-width: 100rem;
+    margin: 0 auto;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Typography --- */
+.title {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin-bottom: 0.5rem;
+}
+.subtitle {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Controls & Input Group --- */
+.input-control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--indigo-200);
+    background-color: var(--indigo-50);
+}
+
+.label-k {
+    font-weight: 600;
+    color: var(--indigo-700);
+}
+
+.input-k {
+    padding: 0.5rem;
+    border: 1px solid var(--indigo-300);
+    border-radius: 0.5rem;
+    width: 5rem;
+    text-align: center;
+    font-family: monospace;
+}
+
+.button-primary {
+    background-color: var(--indigo-600);
+    color: white;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.15s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+.button-primary:hover {
+    background-color: var(--indigo-700);
+}
+
+/* --- Message Box & Instructions --- */
+.message-box {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--gray-200);
+    background-color: var(--gray-50);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    transition: all 0.3s;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+.text-gray-700 { color: var(--gray-700); }
+.text-orange-600 { color: var(--orange-600); }
+.text-red-600 { color: var(--red-600); }
+.text-green-600 { color: var(--green-600); }
+
+
+/* --- Legend --- */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.legend-swatch {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+/* --- SVG Container --- */
+#network-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    /* Maintain aspect ratio 1400:800 = 1.75:1 */
+    aspect-ratio: 1.75 / 1; 
+}
+
+/* --- SVG Node Styles --- */
+.node { 
+    transition: all 0.3s ease-in-out; 
+    cursor: default; 
+}
+.node:hover { 
+    filter: brightness(1.1); 
+} 
+
+/* Ensure the path links are visible above other elements by bringing them to the front */
+.path-link {
+    z-index: 10;
+}
