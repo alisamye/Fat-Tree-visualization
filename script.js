@@ -1,6 +1,6 @@
 // Wrap the entire script in an IIFE to create a local scope and prevent
 // global variable conflicts, especially important in environments like this.
-(function() {
+//(function() {
     let K = 4; // Default K value
     
     // Configuration remains static for colors/dimensions
@@ -35,7 +35,7 @@
     let isDrawingPath = false;
 
 
-    if (!svg) return; // Exit if SVG container is not found
+    //if (!svg) return; // Exit if SVG container is not found
     svg.setAttribute('viewBox', `0 0 ${config.width} ${config.height}`);
 
     // --- Visualization Reset and Utility Functions ---
@@ -451,20 +451,13 @@
                 orderedPaths[targetCoreindex + i] = paths[coreStartIndex + (K/2)*(K/2)+ i]; // edge to aggregation of end
             }
         }
-        /*if (uniqueLinks.size > 0) {
-            uniqueLinks.forEach(link => {
-                //link.element.setAttribute('stroke', config.colors.path);
-                //link.element.setAttribute('stroke-width', 3);
-                //link.element.classList.add('path-link');
-                //link.element.parentNode.appendChild(link.element); // Bring to front
-            });
-        }*/
+        // Highlight each link in the ordered path with a delay for animation effect
         for (const link of orderedPaths) {
         
             link.element.setAttribute('stroke', config.colors.path);
             link.element.setAttribute('stroke-width', 3);
             link.element.classList.add('path-link');
-            await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay for animation effect
+            await new Promise(resolve => setTimeout(resolve, 400)); // 0.4 second delay for animation effect
         }
 
         // Highlight start/end nodes
@@ -509,7 +502,6 @@
             circleElement.setAttribute('stroke', config.colors.highlight);
             circleElement.setAttribute('stroke-width', 3);
             circleElement.setAttribute('r', config.nodeRadius / K);
-            console.log(selectedHosts.length)
             highlightPaths(selectedHosts[0], selectedHosts[1]);
         }
     }
@@ -562,4 +554,4 @@
     // Initial instruction setup (run once on load)
     updateInstructions(0);
     
-})(); // End of IIFE
+//})(); // End of IIFE
